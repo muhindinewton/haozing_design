@@ -5,6 +5,10 @@ import Navbar from '@/components/layout/Navbar';
 import { PROPERTIES, REVIEWS } from '@/lib/data';
 import { MapPin, Star, Wifi, Shield, Users, Bed, Bath, Heart, Share2, ArrowLeft, ChevronLeft, ChevronRight, Check, Zap, Phone, MessageCircle, Calendar, Info } from 'lucide-react';
 
+export function generateStaticParams() {
+  return PROPERTIES.map(property => ({ id: property.id }));
+}
+
 export default function PropertyDetailPage({ params }: { params: { id: string } }) {
   const property = PROPERTIES.find(p => p.id === params.id) || PROPERTIES[0];
   const [imgIdx, setImgIdx] = useState(0);

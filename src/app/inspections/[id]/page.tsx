@@ -5,6 +5,10 @@ import Navbar from '@/components/layout/Navbar';
 import { INSPECTIONS, INSPECTION_CHECKLIST } from '@/lib/data';
 import { ArrowLeft, MapPin, Calendar, Phone, Camera, Check, X, FileText, CheckCircle } from 'lucide-react';
 
+export function generateStaticParams() {
+  return INSPECTIONS.map(inspection => ({ id: inspection.id }));
+}
+
 export default function InspectionDetailPage({ params }: { params: { id: string } }) {
   const inspection = INSPECTIONS.find(i => i.id === params.id) || INSPECTIONS[0];
   const [checklist, setChecklist] = useState(INSPECTION_CHECKLIST.map(c => ({
