@@ -15,9 +15,9 @@ export default function AdminPropertiesPage() {
     { ...PROPERTIES[1], id: 'p-pending-2', title: 'Kilifi Creek House', verified: false, tag: undefined },
   ];
 
+  // FIXED: Remove type error in filter logic
   const filtered = properties.filter(p => {
     if (tab === 'pending' && p.verified) return false;
-    if (tab === 'all' && !p.verified && tab !== 'pending') return false;
     const matchSearch = !search || p.title.toLowerCase().includes(search.toLowerCase()) || p.location.toLowerCase().includes(search.toLowerCase());
     return matchSearch;
   });
@@ -46,7 +46,7 @@ export default function AdminPropertiesPage() {
               { key: 'pending', label: 'Pending Review', count: 2 },
               { key: 'flagged', label: 'Flagged', count: 1 },
             ].map(t => (
-              <button key={t.key} onClick={() => setTab(t.key as typeof tab)} className={`flex items-center gap-2 px-5 py-3 text-sm font-semibold transition-all border-b-2 -mb-px ${tab === t.key ? 'border-brand-700 text-brand-700' : 'border-transparent text-stone-500 hover:text-stone-900'}`}>
+              <button key={t.key} onClick={() => setTab(t.key as typeof tab)} className={`flex items-center gap-2 px-5 py-3 text-sm font-semibold transition-all border-b-2 -mb-px ${tab === t.key ? 'border-brand-700 text-brand-700 bg-white' : 'border-transparent text-stone-500 bg-stone-50'}`}> 
                 {t.label}
                 <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${tab === t.key ? 'bg-brand-100 text-brand-700' : 'bg-stone-100 text-stone-500'}`}>{t.count}</span>
               </button>
@@ -65,7 +65,7 @@ export default function AdminPropertiesPage() {
               <div key={p.id} className="card overflow-hidden">
                 <div className="flex flex-col sm:flex-row">
                   <div className="sm:w-40 h-32 sm:h-auto overflow-hidden shrink-0 relative">
-                    <img src={p.images[0]} className="w-full h-full object-cover" alt={p.title} onError={e => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400'; }} />
+                    <img src={p.images[0]} className="w-full h-full object-cover" alt={p.title} onError={e => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1564013799919-929b6383306e?auto=format&fit=crop&w=400&q=80'; }} />
                     {tab === 'flagged' && (
                       <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
                         <Flag className="w-3 h-3" /> Flagged
@@ -76,7 +76,7 @@ export default function AdminPropertiesPage() {
                     <div className="flex items-start justify-between gap-3 mb-2">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
-                          <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${p.verified ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}`}>
+                          <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${p.verified ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}`}> 
                             <Shield className="w-3 h-3 inline mr-0.5" />{p.verified ? 'Verified' : 'Pending'}
                           </span>
                           <span className="badge-gray text-xs">{p.type}</span>
