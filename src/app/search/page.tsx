@@ -44,23 +44,23 @@ export default function SearchPage() {
       <Navbar />
 
       {/* Search header */}
-      <div className="bg-white border-b border-stone-100 px-4 py-4 sticky top-16 z-30">
-        <div className="max-w-7xl mx-auto flex items-center gap-3">
-          <div className="relative flex-1 max-w-lg">
+      <div className="bg-white border-b border-stone-100 px-4 py-3 md:py-4 sticky top-16 z-30">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-2 md:gap-3">
+          <div className="relative flex-1 min-w-0 max-w-lg">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
             <input
               type="text"
               value={query}
               onChange={e => setQuery(e.target.value)}
-              placeholder="Search location, property name..."
-              className="input-field pl-10 h-11"
+              placeholder="Search location, property..."
+              className="input-field pl-10 h-10 md:h-11 w-full"
             />
           </div>
 
           <select
             value={sortBy}
             onChange={e => setSortBy(e.target.value)}
-            className="input-field h-11 w-auto pr-8 hidden md:block"
+            className="input-field h-10 md:h-11 w-auto pr-8 text-sm hidden md:block"
           >
             <option value="recommended">Recommended</option>
             <option value="price-asc">Price: Low to High</option>
@@ -70,38 +70,38 @@ export default function SearchPage() {
 
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className={`flex items-center gap-2 h-11 px-4 rounded-xl border font-semibold text-sm transition-all ${showFilters ? 'bg-brand-700 text-white border-brand-700' : 'border-stone-200 text-stone-700 hover:border-stone-300'}`}
+            className={`flex items-center gap-1.5 md:gap-2 h-10 md:h-11 px-3 md:px-4 rounded-xl border font-semibold text-xs md:text-sm transition-all ${showFilters ? 'bg-brand-700 text-white border-brand-700' : 'border-stone-200 text-stone-700 hover:border-stone-300'}`}
           >
             <SlidersHorizontal className="w-4 h-4" />
-            Filters
+            <span className="hidden sm:inline">Filters</span>
             {(type !== 'All' || maxPrice < 30000 || instantOnly || selectedAmenities.length > 0) && (
-              <span className="w-5 h-5 bg-savanna-400 text-white rounded-full text-xs flex items-center justify-center font-bold">!</span>
+              <span className="w-4 h-4 md:w-5 md:h-5 bg-savanna-400 text-white rounded-full text-[10px] flex items-center justify-center font-bold">!</span>
             )}
           </button>
 
           <div className="flex border border-stone-200 rounded-xl overflow-hidden">
-            <button onClick={() => setView('list')} className={`px-3 py-2.5 ${view === 'list' ? 'bg-stone-900 text-white' : 'text-stone-600 hover:bg-stone-50'} transition-all`}><List className="w-4 h-4" /></button>
-            <button onClick={() => setView('map')} className={`px-3 py-2.5 ${view === 'map' ? 'bg-stone-900 text-white' : 'text-stone-600 hover:bg-stone-50'} transition-all`}><Map className="w-4 h-4" /></button>
+            <button onClick={() => setView('list')} className={`px-2.5 md:px-3 py-2 md:py-2.5 ${view === 'list' ? 'bg-stone-900 text-white' : 'text-stone-600 hover:bg-stone-50'} transition-all`}><List className="w-4 h-4" /></button>
+            <button onClick={() => setView('map')} className={`px-2.5 md:px-3 py-2 md:py-2.5 ${view === 'map' ? 'bg-stone-900 text-white' : 'text-stone-600 hover:bg-stone-50'} transition-all`}><Map className="w-4 h-4" /></button>
           </div>
         </div>
 
         {/* Filters panel */}
         {showFilters && (
-          <div className="max-w-7xl mx-auto mt-4 p-4 bg-stone-50 rounded-2xl border border-stone-200 animate-slide-up">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="max-w-7xl mx-auto mt-3 md:mt-4 p-3 md:p-4 bg-stone-50 rounded-xl md:rounded-2xl border border-stone-200 animate-slide-up">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
               {/* Property type */}
               <div>
-                <label className="label">Property Type</label>
-                <div className="flex flex-wrap gap-2">
+                <label className="label text-xs md:text-sm">Property Type</label>
+                <div className="flex flex-wrap gap-1.5 md:gap-2">
                   {TYPES.map(t => (
-                    <button key={t} onClick={() => setType(t)} className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-all ${type === t ? 'bg-brand-700 text-white' : 'bg-white border border-stone-200 text-stone-600 hover:border-stone-300'}`}>{t}</button>
+                    <button key={t} onClick={() => setType(t)} className={`text-[11px] md:text-xs px-2.5 md:px-3 py-1.5 rounded-lg font-semibold transition-all ${type === t ? 'bg-brand-700 text-white' : 'bg-white border border-stone-200 text-stone-600 hover:border-stone-300'}`}>{t}</button>
                   ))}
                 </div>
               </div>
 
               {/* Price range */}
               <div>
-                <label className="label">Price Range (KSh/night)</label>
+                <label className="label text-xs md:text-sm">Price Range (KSh/night)</label>
                 <div className="flex items-center gap-2">
                   <input type="number" value={minPrice} onChange={e => setMinPrice(Number(e.target.value))} className="input-field py-2 text-sm" placeholder="Min" />
                   <span className="text-stone-400">—</span>
@@ -111,10 +111,10 @@ export default function SearchPage() {
 
               {/* Rating */}
               <div>
-                <label className="label">Min. Rating</label>
-                <div className="flex gap-2">
+                <label className="label text-xs md:text-sm">Min. Rating</label>
+                <div className="flex gap-1.5 md:gap-2">
                   {[0, 3, 4, 4.5].map(r => (
-                    <button key={r} onClick={() => setMinRating(r)} className={`text-xs px-3 py-1.5 rounded-lg font-semibold flex items-center gap-1 transition-all ${minRating === r ? 'bg-brand-700 text-white' : 'bg-white border border-stone-200 text-stone-600'}`}>
+                    <button key={r} onClick={() => setMinRating(r)} className={`text-[11px] md:text-xs px-2.5 md:px-3 py-1.5 rounded-lg font-semibold flex items-center gap-1 transition-all ${minRating === r ? 'bg-brand-700 text-white' : 'bg-white border border-stone-200 text-stone-600'}`}>
                       {r === 0 ? 'Any' : <><Star className="w-3 h-3 fill-current" />{r}+</>}
                     </button>
                   ))}
@@ -123,34 +123,34 @@ export default function SearchPage() {
 
               {/* Instant book */}
               <div>
-                <label className="label">Options</label>
+                <label className="label text-xs md:text-sm">Options</label>
                 <label className="flex items-center gap-3 cursor-pointer">
                   <input type="checkbox" checked={instantOnly} onChange={e => setInstantOnly(e.target.checked)} className="rounded border-stone-300" />
-                  <span className="text-sm font-medium text-stone-700">⚡ Instant Book only</span>
+                  <span className="text-xs md:text-sm font-medium text-stone-700">⚡ Instant Book only</span>
                 </label>
               </div>
             </div>
 
             {/* Amenities */}
-            <div className="mt-4 pt-4 border-t border-stone-200">
-              <label className="label">Amenities</label>
-              <div className="flex flex-wrap gap-2">
+            <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-stone-200">
+              <label className="label text-xs md:text-sm">Amenities</label>
+              <div className="flex flex-wrap gap-1.5 md:gap-2">
                 {AMENITIES_LIST.map(a => (
-                  <button key={a} onClick={() => toggleAmenity(a)} className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-all ${selectedAmenities.includes(a) ? 'bg-brand-700 text-white' : 'bg-white border border-stone-200 text-stone-600 hover:border-stone-300'}`}>{a}</button>
+                  <button key={a} onClick={() => toggleAmenity(a)} className={`text-[11px] md:text-xs px-2.5 md:px-3 py-1.5 rounded-lg font-semibold transition-all ${selectedAmenities.includes(a) ? 'bg-brand-700 text-white' : 'bg-white border border-stone-200 text-stone-600 hover:border-stone-300'}`}>{a}</button>
                 ))}
               </div>
             </div>
 
-            <div className="flex gap-2 mt-4">
-              <button onClick={() => { setType('All'); setMinPrice(0); setMaxPrice(30000); setMinRating(0); setInstantOnly(false); setSelectedAmenities([]); }} className="btn-secondary text-sm py-2 px-4">Clear all</button>
-              <button onClick={() => setShowFilters(false)} className="btn-primary text-sm py-2 px-4">Show {filtered.length} results</button>
+            <div className="flex gap-2 mt-3 md:mt-4">
+              <button onClick={() => { setType('All'); setMinPrice(0); setMaxPrice(30000); setMinRating(0); setInstantOnly(false); setSelectedAmenities([]); }} className="btn-secondary text-xs md:text-sm py-2 px-3 md:px-4">Clear all</button>
+              <button onClick={() => setShowFilters(false)} className="btn-primary text-xs md:text-sm py-2 px-3 md:px-4">Show {filtered.length} results</button>
             </div>
           </div>
         )}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <p className="text-stone-500 text-sm mb-6">
+      <div className="max-w-7xl mx-auto px-4 py-4 md:py-6">
+        <p className="text-stone-500 text-xs md:text-sm mb-4 md:mb-6">
           <span className="font-semibold text-stone-900">{filtered.length}</span> properties found
           {query && <> for <span className="font-semibold text-stone-900">"{query}"</span></>}
         </p>
@@ -167,21 +167,21 @@ export default function SearchPage() {
             )}
           </div>
         ) : (
-          <div className="flex gap-4 h-[calc(100vh-250px)]">
+          <div className="flex flex-col md:flex-row gap-4 h-[calc(100vh-200px)] md:h-[calc(100vh-250px)]">
             {/* Map */}
-            <div className="flex-1 map-placeholder rounded-2xl relative overflow-hidden">
+            <div className="flex-1 min-h-[300px] md:min-h-0 map-placeholder rounded-xl md:rounded-2xl relative overflow-hidden">
               <div className="absolute inset-0 z-10 flex items-center justify-center">
-                <div className="bg-white rounded-2xl shadow-xl p-6 text-center">
-                  <Map className="w-10 h-10 text-ocean-700 mx-auto mb-2" />
-                  <p className="font-semibold text-stone-900">Interactive Map</p>
-                  <p className="text-sm text-stone-500">Shows {filtered.length} properties</p>
+                <div className="bg-white rounded-xl md:rounded-2xl shadow-xl p-4 md:p-6 text-center">
+                  <Map className="w-8 h-8 md:w-10 md:h-10 text-ocean-700 mx-auto mb-2" />
+                  <p className="font-semibold text-sm md:text-base text-stone-900">Interactive Map</p>
+                  <p className="text-xs md:text-sm text-stone-500">Shows {filtered.length} properties</p>
                 </div>
               </div>
               {/* Price pins */}
               {filtered.slice(0, 5).map((p, i) => (
                 <div
                   key={p.id}
-                  className="absolute bg-white rounded-full px-3 py-1 shadow-lg text-xs font-bold text-stone-900 border border-stone-200 cursor-pointer hover:bg-brand-700 hover:text-white transition-all z-20"
+                  className="absolute bg-white rounded-full px-2.5 md:px-3 py-1 shadow-lg text-[11px] md:text-xs font-bold text-stone-900 border border-stone-200 cursor-pointer hover:bg-brand-700 hover:text-white transition-all z-20"
                   style={{ top: `${20 + i * 12}%`, left: `${15 + i * 15}%` }}
                 >
                   KSh {(p.price / 1000).toFixed(0)}K
@@ -189,10 +189,10 @@ export default function SearchPage() {
               ))}
             </div>
             {/* List sidebar */}
-            <div className="w-80 overflow-y-auto space-y-3">
+            <div className="w-full md:w-80 overflow-y-auto space-y-3 max-h-[300px] md:max-h-none">
               {filtered.map(p => (
                 <a key={p.id} href={`/property/${p.id}`} className="flex gap-3 card p-3 hover:shadow-md transition-all">
-                  <img src={p.images[0]} className="w-20 h-20 rounded-xl object-cover shrink-0" alt={p.title} onError={e => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=200'; }} />
+                  <img src={p.images[0]} className="w-16 h-16 md:w-20 md:h-20 rounded-xl object-cover shrink-0" alt={p.title} onError={e => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=200'; }} />
                   <div className="flex-1 min-w-0">
                     <p className="font-semibold text-sm text-stone-900 line-clamp-1">{p.title}</p>
                     <p className="text-xs text-stone-500">{p.location}</p>

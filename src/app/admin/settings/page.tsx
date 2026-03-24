@@ -26,10 +26,10 @@ export default function SettingsPage() {
   return (
     <div className="min-h-screen bg-surface">
       <Navbar />
-      <div className="flex pt-16">
+      <div className="flex max-w-[1400px] mx-auto">
         <DashboardSidebar role="admin" />
-        <main className="flex-1 p-6 lg:p-8 overflow-y-auto">
-          <div className="max-w-4xl mx-auto">
+        <main className="flex-1 min-w-0 px-6 py-8">
+          <div className="max-w-4xl">
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
               <div>

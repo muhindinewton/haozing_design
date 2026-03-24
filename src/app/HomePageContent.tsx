@@ -57,23 +57,23 @@ export default function HomePageContent({ activeCategory }: { activeCategory: st
       <Navbar />
 
       {/* Hero */}
-      <section className="hero-gradient text-white py-20 md:py-28 px-4 relative overflow-hidden">
+      <section className="hero-gradient text-white py-16 sm:py-20 md:py-28 px-4 relative overflow-hidden">
         {/* decorative circles */}
-        <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/5 rounded-full" />
-        <div className="absolute -bottom-32 -left-16 w-96 h-96 bg-white/5 rounded-full" />
+        <div className="absolute -top-20 -right-20 w-60 h-60 md:w-80 md:h-80 bg-white/5 rounded-full" />
+        <div className="absolute -bottom-32 -left-16 w-72 h-72 md:w-96 md:h-96 bg-white/5 rounded-full" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-sm mb-6 animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm mb-4 md:mb-6 animate-fade-in">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
             <span>3,241 verified properties in Kenya</span>
           </div>
 
-          <h1 className="font-display text-5xl md:text-7xl font-bold mb-4 leading-tight animate-slide-up">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-7xl font-bold mb-3 md:mb-4 leading-tight animate-slide-up">
             Your Perfect<br />
             <span className="text-savanna-400">Kenyan Stay</span><br />
             Awaits
           </h1>
-          <p className="text-white/75 text-lg md:text-xl mb-10 max-w-xl mx-auto animate-slide-up delay-200">
+          <p className="text-white/75 text-base md:text-lg md:text-xl mb-6 md:mb-10 max-w-xl mx-auto px-4 md:px-0 animate-slide-up delay-200">
             Curated, verified properties across Kenya. Book with confidence.
           </p>
 
@@ -81,42 +81,42 @@ export default function HomePageContent({ activeCategory }: { activeCategory: st
             <SearchBar />
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 mt-8 text-sm text-white/70 animate-fade-in delay-400">
-            <span className="flex items-center gap-2"><Shield className="w-4 h-4 text-green-400" /> Verified Properties</span>
-            <span className="flex items-center gap-2"><Zap className="w-4 h-4 text-secondary-400" /> Instant Booking</span>
-            <span className="flex items-center gap-2"><Star className="w-4 h-4 text-secondary-400" /> 4.8★ Average Rating</span>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-6 md:mt-8 text-xs md:text-sm text-white/70 animate-fade-in delay-400">
+            <span className="flex items-center gap-1.5 md:gap-2"><Shield className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-400" /> <span className="hidden sm:inline">Verified</span> Properties</span>
+            <span className="flex items-center gap-1.5 md:gap-2"><Zap className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary-400" /> <span className="hidden sm:inline">Instant</span> Booking</span>
+            <span className="flex items-center gap-1.5 md:gap-2"><Star className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary-400" /> 4.8★ <span className="hidden sm:inline">Average Rating</span></span>
           </div>
         </div>
       </section>
 
       {/* Categories */}
       <section className="py-8 px-4 bg-white/80 backdrop-blur-md border-b border-stone-200/50 sticky top-16 z-30">
-        <div className="max-w-7xl mx-auto flex gap-4 overflow-x-auto pb-2 scrollbar-hide justify-center">
+        <div className="max-w-7xl mx-auto flex gap-3 overflow-x-auto pb-2 scrollbar-hide justify-start md:justify-center">
           {CATEGORIES.map(cat => (
             <Link
               key={cat.label}
               href={`/search?category=${cat.label.toLowerCase()}`}
-              className={`flex flex-col items-center gap-2 px-6 py-4 rounded-2xl whitespace-nowrap transition-all shrink-0 min-w-[80px] backdrop-blur-sm border shadow-sm hover:shadow-md hover:scale-105 ${
+              className={`flex flex-col items-center gap-1.5 px-4 py-3 rounded-xl whitespace-nowrap transition-all shrink-0 min-w-[72px] backdrop-blur-sm border shadow-sm hover:shadow-md active:scale-95 md:hover:scale-105 ${
                 activeCategory.toLowerCase() === cat.label.toLowerCase()
                   ? 'bg-brand-600 text-white border-brand-600 shadow-lg'
                   : 'bg-white/60 hover:bg-brand-50 text-stone-700 hover:text-brand-700 border-stone-200/60'
               }`}
             >
-              <span className="text-2xl">{cat.emoji}</span>
-              <span className="text-sm font-medium">{cat.label}</span>
+              <span className="text-xl md:text-2xl">{cat.emoji}</span>
+              <span className="text-xs md:text-sm font-medium">{cat.label}</span>
             </Link>
           ))}
         </div>
       </section>
 
       {/* Quick Escapes */}
-      <section className="py-10 px-4 max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-6">
+      <section className="py-8 md:py-10 px-4 max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 mb-4 md:mb-6">
           <div>
             <h2 className="section-title">Quick Escapes</h2>
             <p className="text-stone-500 text-sm mt-1">Budget-friendly stays, booked in minutes</p>
           </div>
-          <Link href="/search" className="text-brand-700 text-sm font-semibold hover:underline flex items-center gap-1">
+          <Link href="/search" className="text-brand-700 text-sm font-semibold hover:underline flex items-center gap-1 self-start sm:self-auto">
             See all <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
@@ -139,32 +139,32 @@ export default function HomePageContent({ activeCategory }: { activeCategory: st
       </section>
 
       {/* FYP Preview */}
-      <section className="py-10 px-4 bg-gradient-to-r from-brand-700 to-brand-800 text-white">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <span className="badge bg-white/20 text-white mb-3 text-xs font-bold uppercase tracking-wide">🔥 New Feature</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">Discover Your Feed</h2>
-            <p className="text-white/80 max-w-md">Scroll through stunning property videos and photos. Like, save, and book on the go.</p>
+      <section className="py-8 md:py-10 px-4 bg-gradient-to-r from-brand-700 to-brand-800 text-white">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+          <div className="text-center md:text-left">
+            <span className="badge bg-white/20 text-white mb-2 md:mb-3 text-xs font-bold uppercase tracking-wide">🔥 New Feature</span>
+            <h2 className="font-display text-2xl md:text-4xl font-bold mb-2 md:mb-3">Discover Your Feed</h2>
+            <p className="text-white/80 text-sm md:text-base max-w-md">Scroll through stunning property videos and photos. Like, save, and book on the go.</p>
           </div>
           <div className="flex items-center gap-4">
             <Link
               href="/discover"
-              className="flex items-center gap-3 bg-white text-brand-700 font-bold px-8 py-4 rounded-2xl hover:bg-stone-50 transition-all shadow-xl"
+              className="flex items-center gap-2 md:gap-3 bg-white text-brand-700 font-bold px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl hover:bg-stone-50 transition-all shadow-lg md:shadow-xl text-sm md:text-base"
             >
-              <Play className="w-5 h-5 fill-brand-700" /> Open Feed
+              <Play className="w-4 h-4 md:w-5 md:h-5 fill-brand-700" /> Open Feed
             </Link>
           </div>
         </div>
       </section>
 
       {/* Featured Properties */}
-      <section className="py-12 px-4 max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
+      <section className="py-10 md:py-12 px-4 max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 mb-6 md:mb-8">
           <div>
             <h2 className="section-title">Featured Stays</h2>
             <p className="text-stone-500 text-sm mt-1">Hand-picked, verified properties</p>
           </div>
-          <Link href="/search" className="btn-secondary text-sm py-2 px-4">View all</Link>
+          <Link href="/search" className="btn-secondary text-sm py-2 px-4 self-start sm:self-auto">View all</Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {PROPERTIES.slice(0, 8).map(p => (
@@ -174,14 +174,14 @@ export default function HomePageContent({ activeCategory }: { activeCategory: st
       </section>
 
       {/* Tonight Deals */}
-      <section className="py-10 px-4 bg-brand-600 text-white">
+      <section className="py-8 md:py-10 px-4 bg-brand-600 text-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 mb-4 md:mb-6">
             <div>
-              <h2 className="font-display text-3xl font-bold">🌙 Tonight's Deals</h2>
+              <h2 className="font-display text-2xl md:text-3xl font-bold">🌙 Tonight's Deals</h2>
               <p className="text-white/95 text-sm mt-1">Same-day discounts. Available now.</p>
             </div>
-            <Link href="/search?tag=tonight" className="bg-white/30 hover:bg-white/40 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-all">
+            <Link href="/search?tag=tonight" className="bg-white/30 hover:bg-white/40 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-all self-start sm:self-auto">
               See all
             </Link>
           </div>

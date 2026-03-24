@@ -20,8 +20,8 @@ const HOST_LINKS = [
 const INSPECTOR_LINKS = [
   { label: 'Dashboard', href: '/inspector/dashboard', icon: LayoutDashboard },
   { label: 'Pending Queue', href: '/inspector/dashboard', icon: ClipboardList },
-  { label: 'Inspection History', href: '/inspector/dashboard', icon: FileText },
-  { label: 'Schedule', href: '/inspector/dashboard', icon: Calendar },
+  { label: 'Inspection History', href: '/inspector/history', icon: FileText },
+  { label: 'Schedule', href: '/inspector/schedule', icon: Calendar },
 ];
 
 const ADMIN_LINKS = [
