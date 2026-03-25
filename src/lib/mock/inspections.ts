@@ -1,0 +1,1 @@
+export { INSPECTIONS, INSPECTION_CHECKLIST, INSPECTOR_STATS } from './fixtures';

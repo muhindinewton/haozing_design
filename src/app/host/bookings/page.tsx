@@ -1,7 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { BOOKINGS } from '@/lib/data';
 import { CheckCircle, XCircle, Clock, MessageCircle, Phone, Calendar, Users, MapPin, Filter, Search } from 'lucide-react';
 
@@ -38,11 +36,7 @@ export default function HostBookingsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface">
-      <Navbar role="host" />
-      <div className="flex max-w-[1400px] mx-auto">
-        <DashboardSidebar role="host" />
-        <main className="flex-1 min-w-0 px-6 py-8">
+    <main className="flex-1 min-w-0 px-6 py-8">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="page-header">Booking Manager</h1>
@@ -118,8 +112,6 @@ export default function HostBookingsPage() {
               );
             })}
           </div>
-        </main>
-      </div>
-    </div>
+    </main>
   );
 }

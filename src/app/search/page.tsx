@@ -44,7 +44,7 @@ export default function SearchPage() {
       <Navbar />
 
       {/* Search header */}
-      <div className="bg-white border-b border-stone-100 px-4 py-3 md:py-4 sticky top-16 z-30">
+      <div className="sticky-below-navbar sticky z-40 border-b border-stone-100 bg-white/95 px-4 py-3 backdrop-blur-md transition-[top] duration-300 md:z-30 md:py-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-2 md:gap-3">
           <div className="relative flex-1 min-w-0 max-w-lg">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />

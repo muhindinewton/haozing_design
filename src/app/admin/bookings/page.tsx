@@ -1,7 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { BOOKINGS } from '@/lib/data';
 import { Search, AlertTriangle, DollarSign, RefreshCw, Eye } from 'lucide-react';
 
@@ -32,11 +30,7 @@ export default function AdminBookingsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface">
-      <Navbar />
-      <div className="flex max-w-[1400px] mx-auto">
-        <DashboardSidebar role="admin" />
-        <main className="flex-1 min-w-0 px-6 py-8">
+    <main className="flex-1 min-w-0 px-6 py-8">
           <div className="mb-6">
             <h1 className="page-header">Bookings & Payments</h1>
             <p className="page-subtitle">Monitor all platform bookings and transactions</p>
@@ -110,8 +104,6 @@ export default function AdminBookingsPage() {
               </tbody>
             </table>
           </div>
-        </main>
-      </div>
-    </div>
+    </main>
   );
 }

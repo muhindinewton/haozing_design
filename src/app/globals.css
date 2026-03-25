@@ -86,6 +86,16 @@ h1, h2, h3, h4, h5, h6 {
 .safe-left { padding-left: env(safe-area-inset-left); }
 .safe-right { padding-right: env(safe-area-inset-right); }
 
+.sticky-below-navbar {
+  top: var(--mobile-navbar-offset, 0px);
+}
+
+@media (min-width: 768px) {
+  .sticky-below-navbar {
+    top: 4rem;
+  }
+}
+
 /* Custom classes */
 @layer components {
   .btn-primary {

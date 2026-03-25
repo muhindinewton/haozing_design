@@ -1,7 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { INSPECTIONS } from '@/lib/data';
 import { Search, CheckCircle, XCircle, MapPin, Calendar, Phone, FileText, Download, Filter } from 'lucide-react';
 
@@ -97,11 +95,7 @@ export default function InspectorHistoryPage() {
   const failCount = ALL_HISTORY.filter(i => i.result === 'failed').length;
 
   return (
-    <div className="min-h-screen bg-surface">
-      <Navbar />
-      <div className="flex max-w-[1400px] mx-auto">
-        <DashboardSidebar role="inspector" />
-        <main className="flex-1 min-w-0 px-6 py-8">
+    <main className="flex-1 min-w-0 px-6 py-8">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="page-header">Inspection History</h1>
@@ -239,8 +233,6 @@ export default function InspectorHistoryPage() {
               </div>
             )}
           </div>
-        </main>
-      </div>
-    </div>
+    </main>
   );
 }

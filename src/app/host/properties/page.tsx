@@ -1,8 +1,6 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import Navbar from '@/components/layout/Navbar';
-import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { HOST_PROPERTIES } from '@/lib/data';
 import { Plus, Edit, Trash2, Eye, Pause, Play, Copy, MoreVertical, Star, TrendingUp, Shield, Upload, ChevronRight, X } from 'lucide-react';
 
@@ -21,11 +19,7 @@ export default function HostPropertiesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-surface">
-      <Navbar role="host" />
-      <div className="flex max-w-[1400px] mx-auto">
-        <DashboardSidebar role="host" />
-        <main className="flex-1 min-w-0 px-6 py-8">
+    <main className="flex-1 min-w-0 px-6 py-8">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="page-header">My Properties</h1>
@@ -118,8 +112,6 @@ export default function HostPropertiesPage() {
               </div>
             ))}
           </div>
-        </main>
-      </div>
 
       {/* Add Property Modal */}
       {showAddModal && (
@@ -245,6 +237,6 @@ export default function HostPropertiesPage() {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 }

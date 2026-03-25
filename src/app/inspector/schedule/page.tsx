@@ -1,7 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { INSPECTIONS, INSPECTOR_STATS } from '@/lib/data';
 import { MapPin, Clock, Phone, Calendar, ChevronLeft, ChevronRight, CheckCircle, AlertCircle, Navigation } from 'lucide-react';
 
@@ -49,11 +47,7 @@ export default function InspectorSchedulePage() {
   }[p] || 'bg-stone-100 text-stone-600');
 
   return (
-    <div className="min-h-screen bg-surface">
-      <Navbar />
-      <div className="flex max-w-[1400px] mx-auto">
-        <DashboardSidebar role="inspector" />
-        <main className="flex-1 min-w-0 px-6 py-8">
+    <main className="flex-1 min-w-0 px-6 py-8">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="page-header">My Schedule</h1>
@@ -201,8 +195,6 @@ export default function InspectorSchedulePage() {
               </div>
             </div>
           </div>
-        </main>
-      </div>
-    </div>
+    </main>
   );
 }

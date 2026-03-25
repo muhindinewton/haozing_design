@@ -1,8 +1,6 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import Navbar from '@/components/layout/Navbar';
-import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { HOST_STATS, HOST_PROPERTIES, BOOKINGS } from '@/lib/data';
 import { TrendingUp, TrendingDown, DollarSign, Calendar, Star, Building2, MessageSquare, Bell, Plus, ChevronRight, AlertCircle, CheckCircle, Clock } from 'lucide-react';
 
@@ -13,12 +11,7 @@ export default function HostDashboardPage() {
   const bookings = period === 'week' ? 4 : period === 'month' ? HOST_STATS.monthBookings : HOST_STATS.totalBookings;
 
   return (
-    <div className="min-h-screen bg-surface">
-      <Navbar role="host" />
-      <div className="flex max-w-[1400px] mx-auto">
-        <DashboardSidebar role="host" />
-
-        <main className="flex-1 min-w-0 px-6 py-8">
+    <main className="flex-1 min-w-0 px-6 py-8">
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -154,8 +147,6 @@ export default function HostDashboardPage() {
               </div>
             </div>
           </div>
-        </main>
-      </div>
-    </div>
+    </main>
   );
 }

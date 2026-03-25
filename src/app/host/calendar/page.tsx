@@ -1,7 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { ChevronLeft, ChevronRight, Plus, Trash2, Zap, TrendingUp } from 'lucide-react';
 
 const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
@@ -36,11 +34,7 @@ export default function HostCalendarPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface">
-      <Navbar role="host" />
-      <div className="flex max-w-[1400px] mx-auto">
-        <DashboardSidebar role="host" />
-        <main className="flex-1 min-w-0 px-6 py-8">
+    <main className="flex-1 min-w-0 px-6 py-8">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="page-header">Availability Calendar</h1>
@@ -183,8 +177,6 @@ export default function HostCalendarPage() {
               </div>
             </div>
           </div>
-        </main>
-      </div>
-    </div>
+    </main>
   );
 }

@@ -92,37 +92,37 @@ export default function PropertyCard({ property }: PropertyCardProps) {
 
       {/* Info */}
       <div>
-        <div className="flex items-start justify-between gap-2 mb-1">
-          <h3 className="font-semibold text-stone-900 text-sm leading-snug line-clamp-1 group-hover:text-brand-700 transition-colors">{property.title}</h3>
+        <div className="flex items-start justify-between gap-3 mb-2">
+          <h3 className="font-semibold text-stone-900 text-lg leading-snug line-clamp-1 group-hover:text-brand-700 transition-colors">{property.title}</h3>
           <div className="flex items-center gap-1 shrink-0">
-            <Star className="w-3.5 h-3.5 fill-secondary-500 text-secondary-500" />
-            <span className="text-xs font-semibold text-stone-900">{property.rating}</span>
-            <span className="text-xs text-stone-400">({property.reviewCount})</span>
+            <Star className="w-4 h-4 fill-secondary-500 text-secondary-500" />
+            <span className="text-base font-semibold text-stone-900">{property.rating}</span>
+            <span className="text-base text-stone-400">({property.reviewCount})</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-1 text-xs text-stone-500 mb-1.5">
-          <MapPin className="w-3 h-3" />
+        <div className="flex items-center gap-1.5 text-base text-stone-500 mb-2">
+          <MapPin className="w-4 h-4 shrink-0" />
           <span>{property.location}</span>
         </div>
 
-        <div className="flex items-center gap-3 text-xs text-stone-500 mb-2">
+        <div className="flex flex-wrap items-center gap-3 text-base text-stone-500 mb-3">
           <span>{property.beds} bed{property.beds !== 1 ? 's' : ''}</span>
           <span>·</span>
-          <span><Users className="w-3 h-3 inline mr-0.5" />{property.guests} guests</span>
+          <span><Users className="w-4 h-4 inline mr-1" />{property.guests} guests</span>
           {property.amenities.includes('WiFi') && (
             <>
               <span>·</span>
-              <span><Wifi className="w-3 h-3 inline mr-0.5" />WiFi</span>
+              <span><Wifi className="w-4 h-4 inline mr-1" />WiFi</span>
             </>
           )}
         </div>
 
-        <div className="flex items-baseline gap-1">
-          <span className="font-bold text-stone-900">KSh {property.price.toLocaleString()}</span>
-          <span className="text-xs text-stone-500">/ night</span>
+        <div className="flex items-center gap-2">
+          <span className="font-bold text-2xl text-stone-900">KSh {property.price.toLocaleString()}</span>
+          <span className="text-base text-stone-500">/ night</span>
           {property.instantBook && (
-            <span className="ml-auto text-xs font-medium text-ocean-700 bg-ocean-50 px-2 py-0.5 rounded-full">⚡ Instant</span>
+            <span className="ml-auto text-base font-medium text-ocean-700 bg-ocean-50 px-3 py-1 rounded-full">⚡ Instant</span>
           )}
         </div>
       </div>

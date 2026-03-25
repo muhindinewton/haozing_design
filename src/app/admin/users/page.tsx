@@ -1,7 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { USERS } from '@/lib/data';
 import { Search, Filter, MoreVertical, CheckCircle, Ban, Trash2, Eye, UserPlus, ChevronDown } from 'lucide-react';
 
@@ -23,11 +21,7 @@ export default function AdminUsersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface">
-      <Navbar />
-      <div className="flex max-w-[1400px] mx-auto">
-        <DashboardSidebar role="admin" />
-        <main className="flex-1 min-w-0 px-6 py-8">
+    <main className="flex-1 min-w-0 px-6 py-8">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="page-header">User Management</h1>
@@ -113,8 +107,6 @@ export default function AdminUsersPage() {
               </div>
             )}
           </div>
-        </main>
-      </div>
-    </div>
+    </main>
   );
 }

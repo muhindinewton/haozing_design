@@ -4,8 +4,6 @@ import {
   Settings, Bell, Shield, Globe, CreditCard, Mail, User, Lock,
   Save, CheckCircle
 } from 'lucide-react';
-import DashboardSidebar from '@/components/layout/DashboardSidebar';
-import Navbar from '@/components/layout/Navbar';
 
 const SETTINGS_TABS = [
   { id: 'general', label: 'General', icon: Settings },
@@ -24,11 +22,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface">
-      <Navbar />
-      <div className="flex max-w-[1400px] mx-auto">
-        <DashboardSidebar role="admin" />
-        <main className="flex-1 min-w-0 px-6 py-8">
+    <main className="flex-1 min-w-0 px-6 py-8">
           <div className="max-w-4xl">
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
@@ -225,8 +219,6 @@ export default function SettingsPage() {
               </div>
             </div>
           </div>
-        </main>
-      </div>
-    </div>
+    </main>
   );
 }

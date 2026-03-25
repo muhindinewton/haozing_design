@@ -1,7 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { PROPERTIES } from '@/lib/data';
 import { Search, CheckCircle, XCircle, Eye, ClipboardList, Shield, MapPin, Star, Flag } from 'lucide-react';
 
@@ -27,11 +25,7 @@ export default function AdminPropertiesPage() {
                 PROPERTIES.slice(0, 1);
 
   return (
-    <div className="min-h-screen bg-surface">
-      <Navbar />
-      <div className="flex max-w-[1400px] mx-auto">
-        <DashboardSidebar role="admin" />
-        <main className="flex-1 min-w-0 px-6 py-8">
+    <main className="flex-1 min-w-0 px-6 py-8">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="page-header">Listing Management</h1>
@@ -123,8 +117,6 @@ export default function AdminPropertiesPage() {
               </div>
             ))}
           </div>
-        </main>
-      </div>
-    </div>
+    </main>
   );
 }
