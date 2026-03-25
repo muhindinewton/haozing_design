@@ -90,7 +90,7 @@ export default function HomePageContent({ activeCategory }: { activeCategory: st
       </section>
 
       {/* Categories */}
-      <section className="py-8 px-4 bg-white/80 backdrop-blur-md border-b border-stone-200/50 sticky top-16 z-30">
+      <section className="sticky-below-navbar sticky z-30 border-b border-stone-200/50 bg-white/80 px-4 py-8 backdrop-blur-md transition-[top] duration-300">
         <div className="max-w-7xl mx-auto flex gap-3 overflow-x-auto pb-2 scrollbar-hide justify-start md:justify-center">
           {CATEGORIES.map(cat => (
             <Link
