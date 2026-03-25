@@ -50,7 +50,7 @@ export default function InspectionDetailClient({ inspection }: { inspection: typ
   }
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface mobile-bottom-nav-clearance">
       <Navbar />
       <div className="max-w-3xl mx-auto px-4 py-8">
         <Link href="/inspector/dashboard" className="flex items-center gap-2 text-sm text-stone-500 hover:text-stone-900 mb-6 transition-colors">

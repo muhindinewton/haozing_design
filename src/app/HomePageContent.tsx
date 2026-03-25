@@ -53,7 +53,7 @@ export default function HomePageContent({ activeCategory }: { activeCategory: st
   }
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface mobile-bottom-nav-clearance">
       <Navbar />
 
       {/* Hero */}

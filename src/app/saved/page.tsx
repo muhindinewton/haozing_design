@@ -16,7 +16,7 @@ export default function SavedPage() {
   const [activeCollection, setActiveCollection] = useState('all');
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface mobile-bottom-nav-clearance">
       <Navbar />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6">

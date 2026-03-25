@@ -16,6 +16,13 @@
   --text-muted: #78716c;
   --border: #e7e5e4;
   --radius: 12px;
+  --mobile-bottom-nav-clearance: 0px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --mobile-bottom-nav-clearance: calc(env(safe-area-inset-bottom) + 7rem);
+  }
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -85,6 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 .safe-left { padding-left: env(safe-area-inset-left); }
 .safe-right { padding-right: env(safe-area-inset-right); }
+.mobile-bottom-nav-clearance { padding-bottom: var(--mobile-bottom-nav-clearance); }
 
 .sticky-below-navbar {
   top: var(--mobile-navbar-offset, 0px);

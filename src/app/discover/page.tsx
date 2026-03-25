@@ -171,7 +171,7 @@ function DiscoverFeedCard({
         </>
       )}
 
-      <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col justify-end p-4 pb-[calc(env(safe-area-inset-bottom)+5.5rem)] sm:pb-24 md:pb-8 md:px-8">
+      <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col justify-end p-4 pb-[calc(var(--mobile-bottom-nav-clearance)+0.5rem)] sm:pb-24 md:pb-8 md:px-8">
         <div className="mx-auto flex w-full max-w-6xl flex-col md:flex-row md:items-end md:justify-between md:gap-6">
           <div className="max-w-[calc(100%-4rem)] pr-2 text-white sm:max-w-[calc(100%-5rem)] md:max-w-lg md:pr-0">
             <div className="mb-3 flex items-center gap-2.5">

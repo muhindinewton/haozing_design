@@ -27,7 +27,7 @@ export default function BookingDetailClient({ booking }: { booking: typeof BOOKI
   const nights = Math.ceil((new Date(booking.checkOut).getTime() - new Date(booking.checkIn).getTime()) / 86400000);
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface mobile-bottom-nav-clearance">
       <Navbar />
 
       <div className="max-w-4xl mx-auto px-4 py-4 md:py-8">

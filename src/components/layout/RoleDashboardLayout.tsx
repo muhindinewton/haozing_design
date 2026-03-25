@@ -12,7 +12,7 @@ export default function RoleDashboardLayout({
   role: DashboardRole;
 }) {
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface mobile-bottom-nav-clearance">
       <Navbar role={role} />
       <div className="flex max-w-[1400px] mx-auto">
         <DashboardSidebar role={role} />

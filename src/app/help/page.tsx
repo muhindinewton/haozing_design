@@ -86,7 +86,7 @@ export default function HelpPage() {
   );
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface mobile-bottom-nav-clearance">
       <Navbar />
 
       {/* Hero */}

@@ -11,7 +11,7 @@ export default function MessagesPage() {
   const conversation = activeConv ? MESSAGES.find(m => m.id === activeConv) : null;
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface mobile-bottom-nav-clearance">
       <Navbar />
       <div className="max-w-6xl mx-auto px-4 py-6">
         <h1 className="page-header mb-6">Messages</h1>
